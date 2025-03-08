@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Automation Projects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #0056b3;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #004494;
+            border-radius: 5px;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .project-list {
+            display: none;
+            list-style-type: none;
+            padding: 0;
+        }
+        .project-list li {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        async function loadProjects() {
+            const response = await fetch('projects.json');
+            const projects = await response.json();
+            const projectList = document.getElementById("projects");
+            projectList.innerHTML = "";
+            
+            projects.forEach(project => {
+                let li = document.createElement("li");
+                let a = document.createElement("a");
+                a.href = project.link;
+                a.textContent = project.name;
+                li.appendChild(a);
+                projectList.appendChild(li);
+            });
+            projectList.style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <header>Industrial Automation Projects</header>
+    
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+    
+    <div class="container">
+        <button class="button" onclick="loadProjects()">List of Projects</button>
+        
+        <ul id="projects" class="project-list"></ul>
+    </div>
+</body>
+</html>
