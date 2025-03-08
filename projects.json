@@ -1,6 +1,16 @@
+
+    
+
+
+
+
 [
     {
         "name": "Machine Automation Using Siemens TIA Portal",
         "link": "projects/tia-portal.html"
+    },
+    {
+        "name": "Pneumatic Valves Control using Siemens STEP7/S400 PLC Station",
+        "link": "projects/pneumatic-valves.html"
     }
 ]
